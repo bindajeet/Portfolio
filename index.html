@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bind Ajeet - Laravel/PHP Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ff6f61;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ff6f61;
+    }
+
+    /* Header Section */
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdn.pixabay.com/photo/2017/08/30/07/52/web-2698049_1280.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #ff6f61;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease 0.3s;
+    }
+
+    .btns {
+      display: flex;
+      gap: 1.5rem;
+      animation: fadeInUp 1s ease 0.6s;
+    }
+
+    .btns a {
+      background: #ff6f61;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .btns a:hover {
+      background: #e65a50;
+      transform: translateY(-3px);
+    }
+
+    /* Main Content */
+    main {
+      background: #1a1a1a;
+      padding: 4rem 2rem;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: 0 auto 4rem auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #ff6f61;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #ff6f61;
+    }
+
+    p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #b0b0b0;
+    }
+
+    /* Skills Section */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .skills-list li {
+      background: #2a2a2a;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+      transition: background 0.3s ease;
+    }
+
+    .skills-list li:hover {
+      background: #ff6f61;
+      color: #fff;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project {
+      background: #222;
+      padding: 1.5rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .project h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project a {
+      color: #ff6f61;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    .project p {
+      font-size: 0.95rem;
+      color: #b0b0b0;
+    }
+
+    /* Contact Section */
+    #contact p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    #contact a {
+      color: #ff6f61;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+      }
+
+      .btns a {
+        padding: 0.6rem 1.5rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">Bind Ajeet</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Bind Ajeet</h1>
+    <p>Laravel/PHP Developer</p>
+    <div class="btns">
+      <a href="#projects">View Work</a>
+      <a href="#contact">Hire Me</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Myself</h2>
+      <p>I am a passionate Laravel/PHP developer with hands-on experience in building real-world applications under expert guidance. I specialize in creating responsive websites, admin panels, bulk mail systems, and e-voting platforms using Laravel, PHP, MySQL, HTML, and CSS.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Laravel (8 to 12)</li>
+        <li>PHP (7/8)</li>
+        <li>MySQL</li>
+        <li>HTML / CSS</li>
+        <li>Amazon SES / Email Queues</li>
+        <li>Admin Panels, CRMs, Property Systems</li>
+      </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <h3><a href="https://bulkmailforibc.com/" target="_blank">BulkMail for IBC</a></h3>
+          <p>A robust Laravel-based system designed to send 50k–90k emails via Amazon SES. Built with queue jobs, SMTP rotation, bounce tracking, and log reporting. I helped in integrating SES configurations, queue management, and reporting system.</p>
+        </div>
+
+        <div class="project">
+          <h3><a href="https://ptrlibrary.com/" target="_blank">PTR Library</a></h3>
+          <p>A web-based legal & tax document subscription service. I worked on admin panel development, secure user access logic, and searchable document listing using Laravel & MySQL.</p>
+        </div>
+
+        <div class="project">
+          <h3><a href="https://piyushcolony.sunresolution.in/" target="_blank">Piyush Colony Survey</a></h3>
+          <p>A survey & booking system for housing. I helped implement dynamic survey form handling and location-based property management in the backend.</p>
+        </div>
+
+        <div class="project">
+          <h3><a href="https://maintenance.sunresolution.in/public/login" target="_blank">Maintenance Panel</a></h3>
+          <p>A society billing & admin system with modules for unit-wise billing, maintenance dues, water & electric tracking. I worked on logic to calculate and display dues per flat using Laravel.</p>
+        </div>
+
+        <div class="project">
+          <h3><a href="https://www.evotingforibc.com/" target="_blank">E-voting for IBC</a></h3>
+          <p>A secure OTP-based e-voting platform as per IBC regulations. I supported login, OTP system integration, result generation, and email notification systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:bindajeet95@gmail.com">bindajeet95@gmail.com</a></p>
+      <p>Phone: +91 6352593514</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Bind Ajeet | Laravel/PHP Developer Portfolio
+  </footer>
+</body>
+</html>
